@@ -23,8 +23,16 @@ public class Map : MonoBehaviour
 
 
         foreach(Vector3 p in  positions){
-            Instantiate(tileTemplate, p, Quaternion.identity);
+            Tile tile = Instantiate(tileTemplate, p, Quaternion.identity) as Tile;
+
+            tiles.Add(tile);
         }
+
+        foreach(Tile t in tiles){
+            t.self.SetActive(false);
+        }
+
+        tiles[0].self.SetActive(true);
       
       
 
