@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System;
+
 
 
 public class Map : MonoBehaviour
@@ -13,38 +15,39 @@ public class Map : MonoBehaviour
 
     public List<Vector3> positions;
 
-    public Tile tileTemplate;
+    public Tile[] tileTemplates;
 
     int index = 1;
 
     public MeshFilter[] mfs;
 
+    private System.Random randomGenerator = new System.Random();
+
     // Start is called before the first frame update
-    void Start()
+void Start()
+{
+    positions.Add(new Vector3(0, 0, 0));
+    Generate();
+    Generate();
+    Generate();
+    Generate();
+    Generate();
+
+    foreach(Vector3 p in positions)
     {
-        positions.Add(new Vector3(0, 0, 0));
-        Generate();
-        Generate();
-        Generate();
-        Generate();
-        Generate();
-
-
-        foreach(Vector3 p in  positions){
-            Tile tile = Instantiate(tileTemplate, p, Quaternion.identity) as Tile;
-
-            tiles.Add(tile);
-        }
-
-        foreach(Tile t in tiles){
-            t.self.SetActive(false);
-        }
-
-        tiles[0].self.SetActive(true);
-      
-      
-
+        int randomNumber = GetRandomNumber(0, 3);
+        Tile tileTemplate = tileTemplates[randomNumber]; // Use Next instead of next
+        Tile tile = Instantiate(tileTemplate, p, Quaternion.identity) as Tile;
+        tiles.Add(tile);
     }
+
+    foreach(Tile t in tiles)
+    {
+        t.self.SetActive(false);
+    }
+
+    tiles[0].self.SetActive(true);
+}
 
     // Update is called once per frame
     void Update()
@@ -122,6 +125,11 @@ public class Map : MonoBehaviour
 
     void GenerateTiles(){
 
+    }
+
+    private int GetRandomNumber(int min, int max)
+    {
+        return randomGenerator.Next(0, 3);
     }
 }
 
