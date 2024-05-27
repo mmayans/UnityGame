@@ -11,6 +11,10 @@ public class Map : MonoBehaviour
 
     public Tile tileTemplate;
 
+    int index = 1;
+
+    public MeshFilter[] mfs;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -41,7 +45,15 @@ public class Map : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+         if (Input.GetKeyDown(KeyCode.Space))
+        {
+            ActivateNext();
+        }
+    }
+
+    void ActivateNext(){
+        tiles[index].self.SetActive(true);
+        index ++;
     }
 
     void Generate()
@@ -51,11 +63,11 @@ public class Map : MonoBehaviour
         foreach (Vector3 p in positions)
         {
             Vector3 A = new Vector3(p.x + 1, p.y, p.z);
-            Vector3 B = new Vector3(p.x - 1, p.y, p.z);
-            Vector3 C = new Vector3(p.x + 0.5f, p.y, p.z + 0.866f);
-            Vector3 D = new Vector3(p.x + 0.5f, p.y, p.z - 0.866f);
-            Vector3 E = new Vector3(p.x - 0.5f, p.y, p.z + 0.866f);
-            Vector3 F = new Vector3(p.x - 0.5f, p.y, p.z - 0.866f);
+            Vector3 D = new Vector3(p.x - 1, p.y, p.z);
+            Vector3 B = new Vector3(p.x + 0.5f, p.y, p.z + 0.866f);
+            Vector3 F = new Vector3(p.x + 0.5f, p.y, p.z - 0.866f);
+            Vector3 C = new Vector3(p.x - 0.5f, p.y, p.z + 0.866f);
+            Vector3 E = new Vector3(p.x - 0.5f, p.y, p.z - 0.866f);
 
             A = RoundVector3ToNearest0_001(A);
             B = RoundVector3ToNearest0_001(B);
