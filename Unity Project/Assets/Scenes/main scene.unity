@@ -510,6 +510,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b40279d1cd86c3448ec38c6a89511f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tiles: []
+  positions: []
 --- !u!4 &1504217738
 Transform:
   m_ObjectHideFlags: 0
