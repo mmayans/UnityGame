@@ -13,6 +13,7 @@ public class Map : MonoBehaviour
     {
         positions.Add(new Vector3(0, 0, 0));
         Generate();
+        Generate();
     }
 
     // Update is called once per frame
@@ -33,7 +34,29 @@ public class Map : MonoBehaviour
             Vector3 D = new Vector3(p.x + 0.5f, p.y, p.z - 0.866f);
             Vector3 E = new Vector3(p.x - 0.5f, p.y, p.z + 0.866f);
             Vector3 F = new Vector3(p.x - 0.5f, p.y, p.z - 0.866f);
-            newpositions.AddRange(new List<Vector3> { A, B, C, D, E, F });
+            
+            if(!newpositions.Contains(A)){
+                newpositions.Add(A);
+            }
+
+            if(!newpositions.Contains(B)){
+                newpositions.Add(B);
+            }
+
+            if(!newpositions.Contains(C)){
+                newpositions.Add(C);
+            }
+
+            if(!newpositions.Contains(D)){
+                newpositions.Add(D);
+            }
+
+            if(!newpositions.Contains(E)){
+                newpositions.Add(E);
+            }
+            if(!newpositions.Contains(F)){
+                newpositions.Add(F);
+            }
         }
 
         positions = newpositions;
