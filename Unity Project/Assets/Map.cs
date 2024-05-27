@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Map : MonoBehaviour
 {
     public List<Tile> tiles;
@@ -14,6 +15,12 @@ public class Map : MonoBehaviour
         positions.Add(new Vector3(0, 0, 0));
         Generate();
         Generate();
+        Generate();
+        Generate();
+        Generate();
+      
+      
+
     }
 
     // Update is called once per frame
@@ -34,7 +41,16 @@ public class Map : MonoBehaviour
             Vector3 D = new Vector3(p.x + 0.5f, p.y, p.z - 0.866f);
             Vector3 E = new Vector3(p.x - 0.5f, p.y, p.z + 0.866f);
             Vector3 F = new Vector3(p.x - 0.5f, p.y, p.z - 0.866f);
-            
+
+            A = RoundVector3ToNearest0_001(A);
+            B = RoundVector3ToNearest0_001(B);
+            C = RoundVector3ToNearest0_001(C);
+            D = RoundVector3ToNearest0_001(D);
+            E = RoundVector3ToNearest0_001(E);
+            F = RoundVector3ToNearest0_001(F);
+
+
+
             if(!newpositions.Contains(A)){
                 newpositions.Add(A);
             }
@@ -60,6 +76,16 @@ public class Map : MonoBehaviour
         }
 
         positions = newpositions;
+    }
+
+
+
+    Vector3 RoundVector3ToNearest0_001(Vector3 vector)
+    {
+        float roundedX = Mathf.Round(vector.x * 1000f) / 1000f;
+        float roundedY = Mathf.Round(vector.y * 1000f) / 1000f;
+        float roundedZ = Mathf.Round(vector.z * 1000f) / 1000f;
+        return new Vector3(roundedX, roundedY, roundedZ);
     }
 }
 
