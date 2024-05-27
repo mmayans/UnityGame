@@ -9,6 +9,8 @@ public class Map : MonoBehaviour
 
     public List<Vector3> positions;
 
+    public Tile tileTemplate;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +20,11 @@ public class Map : MonoBehaviour
         Generate();
         Generate();
         Generate();
+
+
+        foreach(Vector3 p in  positions){
+            Instantiate(tileTemplate, p, Quaternion.identity);
+        }
       
       
 
@@ -86,6 +93,10 @@ public class Map : MonoBehaviour
         float roundedY = Mathf.Round(vector.y * 1000f) / 1000f;
         float roundedZ = Mathf.Round(vector.z * 1000f) / 1000f;
         return new Vector3(roundedX, roundedY, roundedZ);
+    }
+
+    void GenerateTiles(){
+
     }
 }
 

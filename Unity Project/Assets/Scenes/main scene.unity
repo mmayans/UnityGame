@@ -512,6 +512,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tiles: []
   positions: []
+  tileTemplate: {fileID: 1461456524}
 --- !u!4 &1504217738
 Transform:
   m_ObjectHideFlags: 0
