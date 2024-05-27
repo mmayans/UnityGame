@@ -1,10 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 
 public class Map : MonoBehaviour
 {
+    public TMP_Text Tilecount;
+
+
     public List<Tile> tiles;
 
     public List<Vector3> positions;
@@ -54,6 +58,7 @@ public class Map : MonoBehaviour
     void ActivateNext(){
         tiles[index].self.SetActive(true);
         index ++;
+        Tilecount.text=("Tiles:"+index.ToString());
     }
 
     void Generate()
