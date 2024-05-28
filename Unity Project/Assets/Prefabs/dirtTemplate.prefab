@@ -10,11 +10,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: f83e0953953d8ef4792ee77f2ff1c491, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.9
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f83e0953953d8ef4792ee77f2ff1c491, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.9
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f83e0953953d8ef4792ee77f2ff1c491, type: 3}
       propertyPath: m_LocalPosition.x
@@ -64,6 +64,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: dirtTemplate
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f83e0953953d8ef4792ee77f2ff1c491, type: 3}
+      propertyPath: m_TagString
+      value: tile
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -75,11 +79,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 4404720176833792872}
   m_SourcePrefab: {fileID: 100100000, guid: f83e0953953d8ef4792ee77f2ff1c491, type: 3}
---- !u!23 &22830393237437097 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: -7511558181221131132, guid: f83e0953953d8ef4792ee77f2ff1c491, type: 3}
-  m_PrefabInstance: {fileID: 1698008512755230253}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1968601279757310844 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f83e0953953d8ef4792ee77f2ff1c491, type: 3}
@@ -120,5 +119,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   position: {x: 0, y: 0, z: 0}
-  Mesh: {fileID: 22830393237437097}
+  mesh: {fileID: 0}
   self: {fileID: 1968601279757310844}
+  empty: {fileID: 0}
+  full: {fileID: 0}

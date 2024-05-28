@@ -11,11 +11,11 @@ public class Map : MonoBehaviour
     public TMP_Text Tilecount;
 
 
-    public List<Tile> tiles;
+    public List<TileHolder> tiles;
 
     public List<Vector3> positions;
 
-    public Tile[] tileTemplates;
+    public TileHolder[] tileTemplates;
 
     int index = 1;
 
@@ -36,17 +36,18 @@ void Start()
     foreach(Vector3 p in positions)
     {
         int randomNumber = GetRandomNumber(0, 3);
-        Tile tileTemplate = tileTemplates[randomNumber]; // Use Next instead of next
-        Tile tile = Instantiate(tileTemplate, p, Quaternion.identity) as Tile;
-        tiles.Add(tile);
+        TileHolder tileTemplate = tileTemplates[randomNumber]; // Use Next instead of next
+        TileHolder tileHolder = Instantiate(tileTemplate, p, Quaternion.identity) as TileHolder;
+        tiles.Add(tileHolder);
     }
 
-    foreach(Tile t in tiles)
+    foreach(TileHolder t in tiles)
     {
-        t.self.SetActive(false);
+        t.t.self.SetActive(false);
+        t.empty.SetActive(false);
     }
 
-    tiles[0].self.SetActive(true);
+    tiles[0].t.self.SetActive(true);
 }
 
     // Update is called once per frame
@@ -59,7 +60,7 @@ void Start()
     }
 
     void ActivateNext(){
-        tiles[index].self.SetActive(true);
+        tiles[index].t.self.SetActive(true);
         index ++;
         Tilecount.text=("Tiles:"+index.ToString());
     }
